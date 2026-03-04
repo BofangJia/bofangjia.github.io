@@ -1,1 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIL-SERL Paradigm-based Real-World RL - Bofang</title>
+    <style>
+        /* CSS 变量 */
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-body: #333333;
+            --text-muted: #666666;
+            --border-color: #eaeaea;
+            --code-bg: #f5f5f5;
+        }
 
+        /* 全局基础重置与排版设置 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 顶部导航容器 */
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 48px 0;
+        }
+
+        .logo a {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .return-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .return-btn:hover {
+            color: var(--text-muted);
+        }
+
+        /* 文章主体容器 */
+        .article-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px 24px;
+        }
+
+        /* 文章头部：标题和元信息 */
+        .article-header {
+            margin-bottom: 48px;
+        }
+
+        .article-header h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin: 0 0 24px 0;
+        }
+
+        .article-meta {
+            font-size: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 32px;
+        }
+
+        .author {
+            font-weight: 500;
+            color: var(--text-main);
+            white-space: nowrap; /* 强制作者名不换行 */
+        }
+
+        .date {
+            white-space: nowrap; /* 强制日期不换行，解决竖排问题 */
+        }
+
+        /* 正文排版 */
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-body);
+        }
+
+        .article-content p {
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 48px 0 20px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 32px 0 16px 0;
+        }
+
+        .article-content a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .article-content a:hover {
+            color: var(--text-muted);
+        }
+
+        .article-content blockquote {
+            margin: 32px 0;
+            padding-left: 20px;
+            border-left: 3px solid var(--text-main);
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .article-content figure {
+            margin: 48px -24px;
+        }
+
+        .media-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .article-content figcaption {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* 响应式设计 */
+        @media (min-width: 768px) {
+            .article-content figure {
+                margin: 56px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .article-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <header>
+            <div class="logo"><a href="index.html">Bofang</a></div>
+            <a href="https://bofangjia.github.io/blog.html" class="return-btn">Return</a>
+        </header>
+    </div>
+
+    <main class="article-container">
+        
+        <header class="article-header">
+            <h1>HIL-SERL Paradigm-based Real-World RL Related Experience and Analysis</h1>
+            <div class="article-meta">
+                <span class="author">Bofang</span>
+                <span class="date">March 4, 2026</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p><strong>Abstract:</strong> Reinforcement Learning (RL) has shown tremendous potential in simulated environments, but transferring these capabilities to real-world physical systems remains a significant challenge. This post explores my recent experience applying the HIL-SERL (Human-in-the-Loop Soft Actor-Critic for Episodic Reinforcement Learning) paradigm to real-world robotic control tasks.</p>
+            
+            <p>The gap between simulation and reality is not just about visual fidelity; it involves complex physical dynamics, sensor noise, and the fundamental challenge of sample efficiency when operating actual hardware.</p>
+
+            <h2>The Core Challenge of Real-World RL</h2>
+            <p>Traditional RL algorithms often require millions of interactions to converge. In a physical setup, running a robot arm or a mobile base for millions of episodes is not only time-consuming but also physically destructive to the hardware due to wear and tear.</p>
+
+            <figure>
+                <div class="media-placeholder">
+                    [Image or Video Placeholder: Robot hardware setup or policy rollout]
+                </div>
+                <figcaption>Figure 1: The real-world experimental setup demonstrating the sample collection phase.</figcaption>
+            </figure>
+
+            <h2>Why HIL-SERL?</h2>
+            <p>The HIL-SERL paradigm addresses these issues by effectively combining human intuition with the exploration capabilities of Soft Actor-Critic (SAC). By incorporating human interventions during the learning process, we can:</p>
+            <ul>
+                <li>Prevent the agent from exploring dangerous state spaces.</li>
+                <li>Provide high-quality demonstrations to bootstrap the policy network.</li>
+                <li>Dramatically reduce the number of samples required to reach a competent policy.</li>
+            </ul>
+
+            <blockquote>
+                "The integration of human feedback transforms the sample efficiency of Embodied AI from an intractable hardware problem into a manageable human-robot collaboration."
+            </blockquote>
+
+            <h2>Implementation Details & Analysis</h2>
+            <p>In our deployment, we observed that tuning the reward scale relative to the human intervention penalty was critical. If the intervention penalty is too high, the policy becomes overly conservative; if too low, the agent fails to learn autonomy and simply waits for human guidance.</p>
+            
+            <h3>Reward Shaping vs. Sparse Rewards</h3>
+            <p>While sparse rewards represent the "holy grail" of RL, real-world systems often require careful reward shaping to guide the initial learning phases before transitioning to sparser signals as the policy matures.</p>
+
+            <p><em>More technical details and data analysis will be updated as the experiments progress.</em></p>
+        </div>
+
+    </main>
+
+</body>
+</html>

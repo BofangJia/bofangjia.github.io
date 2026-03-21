@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/33.png">
@@ -26,7 +26,6 @@
       margin: 0; 
     }
 
-    /* 链接平滑过渡动画 */
     a {
       transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.2s ease;
     }
@@ -79,61 +78,76 @@
       color: #444;
     }
 
-    /* 较淡的日期颜色 */
     td.news-date {
       color: #666; 
       font-weight: 500;
     }
 
-    /* =============== 顶部居中吸顶导航栏 =============== */
+    /* =============== Rhoda 同款：药丸形悬浮导航栏 =============== */
     .top-nav-container {
       position: sticky;
-      top: 0;
-      background-color: #fff; /* 纯白背景，无毛玻璃 */
+      top: 25px; /* 距离页面顶部留出 25px 的呼吸空间，让它真正“飘”起来 */
       z-index: 1000;
-      padding: 20px 0; /* 上下内边距 */
-      border-bottom: 1px solid #eaeaea; /* 图中所示的底部分隔线 */
-      margin-bottom: 40px;
-      text-align: center; /* 确保内容居中 */
+      
+      /* 核心：限制宽度，居中显示 */
+      width: max-content; 
+      max-width: 90%;
+      margin: 0 auto 40px auto; 
+      
+      /* 外观：白底、圆角、高级阴影 */
+      background-color: #ffffff; 
+      border-radius: 50px; /* 完美的半圆角打造药丸形状 */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* 柔和的四周阴影 */
+      border: 1px solid rgba(0, 0, 0, 0.04); /* 极淡的边框增加边缘质感 */
+      
+      /* Flex 内部布局：左边 Logo，右边链接 */
+      display: flex;
+      align-items: center;
+      padding: 10px 30px; /* 控制药丸的胖瘦 */
+    }
+
+    /* 模拟 Rhoda 的左侧 Logo 占位 */
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: #222 !important;
+      text-decoration: none;
+      margin-right: 35px; /* 与右侧栏目拉开距离 */
+      letter-spacing: -0.5px;
     }
 
     .nav-links-wrapper {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
     }
 
     .nav-link {
-      text-transform: uppercase; 
-      letter-spacing: 1.5px; /* 稍微增加字间距，更贴近原图 */
-      font-size: 14px;
-      font-weight: 600;
-      color: #555 !important;
+      text-transform: capitalize; /* 恢复正常大小写，与 Rhoda 保持一致 */
+      font-size: 15px;
+      font-weight: 500;
+      color: #333 !important;
       text-decoration: none;
-      padding: 5px 10px;
+      padding: 5px 12px;
       transition: color 0.3s ease;
     }
 
-    /* 悬停状态 */
     .nav-link:hover {
       color: #1772d0 !important;
     }
 
-    /* 滚动监听高亮状态 */
     .nav-link.active {
-      color: #1772d0 !important; /* 激活时变为科技蓝 */
+      color: #1772d0 !important; 
     }
 
-    /* 导航栏分隔竖线 */
+    /* 完美复刻图中淡淡的竖线分隔符 */
     .nav-separator {
-      color: #ccc;
-      margin: 0 15px;
-      font-weight: 300;
-      font-size: 16px;
+      width: 1px;
+      height: 16px; /* 竖线的高度比文字略矮 */
+      background-color: #ddd; 
+      margin: 0 5px; /* 竖线与文字的左右间距 */
     }
 
     /* =============== 论文列表样式 =============== */
-    /* 论文整行悬浮反馈 (Row Hover Effect) */
     .paper-row {
       transition: background-color 0.3s ease;
       border-radius: 12px; 
@@ -142,7 +156,6 @@
       background-color: #f8f9fa; 
     }
 
-    /* 论文图片悬浮微微放大，增加质感 */
     .paper-img {
       width: 100%;
       max-width: 100%;
@@ -155,7 +168,6 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.12);
     }
 
-    /* 胶囊形状的论文链接按钮 */
     .btn {
       display: inline-block;
       padding: 3px 12px;
@@ -173,16 +185,15 @@
       text-decoration: none !important;
     }
 
-    /* 名字专属的高级感下划线高亮 */
     .me {
       font-weight: 600;
       color: #222;
       border-bottom: 2px solid #1a73e8; 
     }
     
-    /* 修正锚点跳转被吸顶导航遮挡的问题 */
+    /* 防止点击锚点时，悬浮栏遮挡标题 */
     .section-anchor {
-      scroll-margin-top: 80px; /* 留出顶部导航栏的高度空间 */
+      scroll-margin-top: 100px; 
     }
   </style>
 </head>
@@ -190,13 +201,15 @@
 <body>
   
   <div class="top-nav-container">
+    <a href="#home" class="nav-logo">bofang</a> 
+    
     <div class="nav-links-wrapper">
       <a href="#home" class="nav-link" id="nav-home">Home</a>
-      <span class="nav-separator">|</span>
-      <a href="#news" class="nav-link" id="nav-news">News</a>
-      <span class="nav-separator">|</span>
+      <div class="nav-separator"></div>
       <a href="#research" class="nav-link" id="nav-research">Research</a>
-      <span class="nav-separator">|</span>
+      <div class="nav-separator"></div>
+      <a href="#news" class="nav-link" id="nav-news">News</a>
+      <div class="nav-separator"></div>
       <a href="#honors" class="nav-link" id="nav-honors">Honors</a>
     </div>
   </div>
@@ -416,7 +429,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 捕获所有带 id 的 section 锚点
       const sections = [
         document.getElementById('home'),
         document.getElementById('news'),
@@ -431,16 +443,13 @@
         
         sections.forEach(section => {
           if (section) {
-            // 获取模块距离视口顶部的距离
             const sectionTop = section.getBoundingClientRect().top;
-            // 考虑顶部导航栏的高度（大概 60px），当模块进入屏幕上方 100px 范围内时切换高亮
-            if (sectionTop <= 100) {
+            if (sectionTop <= 150) {
               currentId = section.getAttribute('id');
             }
           }
         });
 
-        // 移除所有导航项的激活状态，然后给当前的加上
         navLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === '#' + currentId) {
@@ -449,10 +458,7 @@
         });
       }
 
-      // 初始化执行一次
       updateNav();
-      
-      // 监听滚动事件
       window.addEventListener('scroll', updateNav);
     });
   </script>

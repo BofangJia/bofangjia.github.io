@@ -23,6 +23,7 @@
       line-height: 1.6;
       color: #444; 
       background-color: #fff;
+      margin: 0; /* 确保吸顶完美贴合浏览器边缘 */
     }
 
     /* 链接平滑过渡动画 */
@@ -86,6 +87,19 @@
       font-weight: 500;
     }
 
+    /* 毛玻璃吸顶导航 (Glassmorphism Sticky Nav) */
+    .sticky-nav-container {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.85); /* 85% 透明度白色背景 */
+      backdrop-filter: blur(12px);           /* 核心：高斯模糊 */
+      -webkit-backdrop-filter: blur(12px);   /* 兼容 Safari */
+      z-index: 1000;                         /* 确保在最上层 */
+      padding: 15px 0 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05); /* 极淡的底部阴影线 */
+      margin-bottom: 20px;
+    }
+
     /* 顶部导航栏高级排版 */
     .nav-link {
       text-transform: uppercase; /* 字母大写 */
@@ -101,6 +115,15 @@
       color: #ddd;
       margin: 0 12px;
       font-weight: 300;
+    }
+
+    /* 论文整行悬浮反馈 (Row Hover Effect) */
+    .paper-row {
+      transition: background-color 0.3s ease;
+      border-radius: 12px; /* 隐藏的柔和圆角 */
+    }
+    .paper-row:hover {
+      background-color: #f8f9fa; /* 极淡的谷歌灰背景，增强呼吸感 */
     }
 
     /* 论文图片悬浮微微放大，增加质感 */
@@ -144,23 +167,26 @@
 </head>
 
 <body>
+  
+  <div class="sticky-nav-container">
+    <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+      <tbody>
+        <tr>
+          <td style="padding:0px; padding-right: 20px; text-align: right;">
+            <a href="#home" class="nav-link">Home</a> <span class="nav-separator">|</span>
+            <a href="#news" class="nav-link">News</a> <span class="nav-separator">|</span>
+            <a href="#research" class="nav-link">Research</a> <span class="nav-separator">|</span>
+            <a href="#honors" class="nav-link">Honors</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
     <tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:30px;margin-bottom:10px;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:0px; padding-right: 20px; text-align: right;">
-                  <a href="#home" class="nav-link">Home</a> <span class="nav-separator">|</span>
-                  <a href="#news" class="nav-link">News</a> <span class="nav-separator">|</span>
-                  <a href="#research" class="nav-link">Research</a> <span class="nav-separator">|</span>
-                  <a href="#honors" class="nav-link">Honors</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
           <table id="home" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
@@ -200,20 +226,20 @@
                   <table width="100%" align="center" border="0" cellpadding="0">
                     <tbody>
                       <tr>
-                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Aug 2025</strong></td>
-                        <td width="85%" valign="top" style="padding-bottom: 8px;">I became a master student at Nanyang Technological University.</td>
+                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Aug 2025</strong></td>
+                        <td width="88%" valign="top" style="padding-bottom: 8px;">I became a master student at Nanyang Technological University.</td>
                       </tr>
                       <tr>
-                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>May 2025</strong></td>
-                        <td width="85%" valign="top" style="padding-bottom: 8px;">I became an outstanding undergraduate graduate of Southwest University.</td>
+                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>May 2025</strong></td>
+                        <td width="88%" valign="top" style="padding-bottom: 8px;">I became an outstanding undergraduate graduate of Southwest University.</td>
                       </tr>
                       <tr>
-                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Jul 2024</strong></td>
-                        <td width="85%" valign="top" style="padding-bottom: 8px;">I became a visiting student at Westlake University.</td>
+                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Jul 2024</strong></td>
+                        <td width="88%" valign="top" style="padding-bottom: 8px;">I became a visiting student at Westlake University.</td>
                       </tr>
                       <tr>
-                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Apr 2024</strong></td>
-                        <td width="85%" valign="top" style="padding-bottom: 8px;">One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</td>
+                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Apr 2024</strong></td>
+                        <td width="88%" valign="top" style="padding-bottom: 8px;">One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</td>
                       </tr>
                     </tbody>
                   </table>
@@ -235,7 +261,7 @@
 
           <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
-              <tr>
+              <tr class="paper-row">
                 <td style="padding:20px;width:25%;vertical-align:top">
                   <img src="images/34.png" class="paper-img" />
                 </td>
@@ -254,7 +280,7 @@
                 </td>
               </tr>
 
-              <tr>
+              <tr class="paper-row">
                 <td style="padding:20px;width:25%;vertical-align:top">
                   <img src="images/35.png" class="paper-img" />
                 </td>
@@ -273,7 +299,7 @@
                 </td>
               </tr>
               
-              <tr>
+              <tr class="paper-row">
                 <td style="padding:20px;width:25%;vertical-align:top">
                   <img src="images/30.png" class="paper-img" />
                 </td>
@@ -292,7 +318,7 @@
                 </td>
               </tr>
 
-              <tr>
+              <tr class="paper-row">
                 <td style="padding:20px;width:25%;vertical-align:top">
                   <img src="images/28.svg" class="paper-img" />
                 </td>
@@ -311,7 +337,7 @@
                 </td>
               </tr>
 
-              <tr>
+              <tr class="paper-row">
                 <td style="padding:20px;width:25%;vertical-align:top">
                   <img src="images/18.png" class="paper-img" />
                 </td>

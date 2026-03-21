@@ -83,27 +83,34 @@
       font-weight: 500;
     }
 
-    /* =============== Rhoda 同款：药丸形悬浮导航栏 =============== */
+    /* =============== Rhoda 同款：智能药丸悬浮导航栏 =============== */
     .top-nav-container {
-      position: sticky;
-      top: 25px; /* 距离页面顶部留出 25px 的呼吸空间，让它真正“飘”起来 */
+      position: fixed; /* 改为 fixed，脱离文档流，才能做到上滑显示/下滑隐藏 */
+      top: 25px; 
+      left: 50%; /* 绝对居中技巧 1 */
+      transform: translateX(-50%); /* 绝对居中技巧 2 */
       z-index: 1000;
       
-      /* 核心：限制宽度，居中显示 */
       width: max-content; 
       max-width: 90%;
-      margin: 0 auto 40px auto; 
       
       /* 外观：白底、圆角、高级阴影 */
       background-color: #ffffff; 
-      border-radius: 50px; /* 完美的半圆角打造药丸形状 */
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* 柔和的四周阴影 */
-      border: 1px solid rgba(0, 0, 0, 0.04); /* 极淡的边框增加边缘质感 */
+      border-radius: 50px; 
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+      border: 1px solid rgba(0, 0, 0, 0.04); 
       
-      /* Flex 内部布局：左边 Logo，右边链接 */
       display: flex;
       align-items: center;
-      padding: 10px 30px; /* 控制药丸的胖瘦 */
+      padding: 10px 30px; 
+      
+      /* 核心动画：控制显隐的过渡时间 */
+      transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    /* 当添加了 .nav-hidden 类时，导航栏向上平移并隐藏 */
+    .top-nav-container.nav-hidden {
+      transform: translate(-50%, -150%); /* 向上移动 150% 自身高度，藏出屏幕外 */
     }
 
     /* 模拟 Rhoda 的左侧 Logo 占位 */
@@ -112,7 +119,7 @@
       font-weight: 700;
       color: #222 !important;
       text-decoration: none;
-      margin-right: 35px; /* 与右侧栏目拉开距离 */
+      margin-right: 35px; 
       letter-spacing: -0.5px;
     }
 
@@ -122,7 +129,7 @@
     }
 
     .nav-link {
-      text-transform: capitalize; /* 恢复正常大小写，与 Rhoda 保持一致 */
+      text-transform: capitalize; 
       font-size: 15px;
       font-weight: 500;
       color: #333 !important;
@@ -142,9 +149,9 @@
     /* 完美复刻图中淡淡的竖线分隔符 */
     .nav-separator {
       width: 1px;
-      height: 16px; /* 竖线的高度比文字略矮 */
+      height: 16px; 
       background-color: #ddd; 
-      margin: 0 5px; /* 竖线与文字的左右间距 */
+      margin: 0 5px; 
     }
 
     /* =============== 论文列表样式 =============== */
@@ -195,12 +202,17 @@
     .section-anchor {
       scroll-margin-top: 100px; 
     }
+    
+    /* 由于导航栏改为了 fixed，为了防止遮挡顶部的头像内容，给最外层容器加一点上边距 */
+    .main-wrapper {
+      margin-top: 100px;
+    }
   </style>
 </head>
 
 <body>
   
-  <div class="top-nav-container">
+  <div class="top-nav-container" id="smart-nav">
     <a href="#home" class="nav-logo">bofang</a> 
     
     <div class="nav-links-wrapper">
@@ -214,236 +226,256 @@
     </div>
   </div>
 
-  <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
+  <div class="main-wrapper">
+    <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+      <tbody>
+        <tr style="padding:0px">
+          <td style="padding:0px">
 
-          <table id="home" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:71%;vertical-align:middle">
-                  <p style="text-align:center"><name>Bofang Jia</name></p>
-                  <p>I am a first-year research-based master student (MEng) at Nanyang Technological University, advised by Prof. <a href="https://ziweiwangthu.github.io/" target="_blank">Ziwei Wang</a> as part of the <a href="https://pine-lab-ntu.github.io/" target="_blank">Pine Lab</a>.</p>
-                  <p>I received my Bachelor of Engineering degree from Southwest University in June 2025. During my undergraduate studies, I was also a visiting student at Westlake University, advised by Prof. <a href="https://milab.westlake.edu.cn/index.html" target="_blank">Donglin Wang</a>.</p>
-                  <p style="text-align:center; font-size: 14px; margin-top: 15px;">
-                    <a href="mailto:jiabofang@outlook.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
-                    &nbsp;/&nbsp;
-                    <a href="https://scholar.google.com/citations?user=k7o_eyMAAAAJ&hl=zh-CN" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                    &nbsp;/&nbsp;
-                    <a href="https://github.com/BofangJia" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    &nbsp;/&nbsp;
-                    <a href="https://twitter.com/BofangJia78170" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                    &nbsp;/&nbsp;
-                    <a href="https://www.linkedin.com/in/%E5%8D%9A%E6%96%B9-%E8%B4%BE-b5a555386/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    &nbsp;/&nbsp;
-                    <a href="https://bofangjia.github.io/blog.html" target="_blank"><i class="fas fa-blog"></i> Blog</a>
-                    &nbsp;/&nbsp;
-                    <a href="#" target="_blank"><i class="fas fa-book-open"></i> 小红书/rednote</a>
-                  </p>
-                </td>
-                <td style="padding:20px;width:29%;max-width:40%">
-                  <img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/17.JPG" class="hoverZoomLink">
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <table id="home" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:71%;vertical-align:middle">
+                    <p style="text-align:center"><name>Bofang Jia</name></p>
+                    <p>I am a first-year research-based master student (MEng) at Nanyang Technological University, advised by Prof. <a href="https://ziweiwangthu.github.io/" target="_blank">Ziwei Wang</a> as part of the <a href="https://pine-lab-ntu.github.io/" target="_blank">Pine Lab</a>.</p>
+                    <p>I received my Bachelor of Engineering degree from Southwest University in June 2025. During my undergraduate studies, I was also a visiting student at Westlake University, advised by Prof. <a href="https://milab.westlake.edu.cn/index.html" target="_blank">Donglin Wang</a>.</p>
+                    <p style="text-align:center; font-size: 14px; margin-top: 15px;">
+                      <a href="mailto:jiabofang@outlook.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+                      &nbsp;/&nbsp;
+                      <a href="https://scholar.google.com/citations?user=k7o_eyMAAAAJ&hl=zh-CN" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                      &nbsp;/&nbsp;
+                      <a href="https://github.com/BofangJia" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                      &nbsp;/&nbsp;
+                      <a href="https://twitter.com/BofangJia78170" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                      &nbsp;/&nbsp;
+                      <a href="https://www.linkedin.com/in/%E5%8D%9A%E6%96%B9-%E8%B4%BE-b5a555386/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                      &nbsp;/&nbsp;
+                      <a href="https://bofangjia.github.io/blog.html" target="_blank"><i class="fas fa-blog"></i> Blog</a>
+                      &nbsp;/&nbsp;
+                      <a href="#" target="_blank"><i class="fas fa-book-open"></i> 小红书/rednote</a>
+                    </p>
+                  </td>
+                  <td style="padding:20px;width:29%;max-width:40%">
+                    <img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/17.JPG" class="hoverZoomLink">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <table id="news" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>News</heading>
-                  <table width="100%" align="center" border="0" cellpadding="0">
-                    <tbody>
-                      <tr>
-                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Aug 2025</strong></td>
-                        <td width="88%" valign="top" style="padding-bottom: 8px;">I became a master student at Nanyang Technological University.</td>
-                      </tr>
-                      <tr>
-                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>May 2025</strong></td>
-                        <td width="88%" valign="top" style="padding-bottom: 8px;">I became an outstanding undergraduate graduate of Southwest University.</td>
-                      </tr>
-                      <tr>
-                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Jul 2024</strong></td>
-                        <td width="88%" valign="top" style="padding-bottom: 8px;">I became a visiting student at Westlake University.</td>
-                      </tr>
-                      <tr>
-                        <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Apr 2024</strong></td>
-                        <td width="88%" valign="top" style="padding-bottom: 8px;">One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <table id="news" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    <heading>News</heading>
+                    <table width="100%" align="center" border="0" cellpadding="0">
+                      <tbody>
+                        <tr>
+                          <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Aug 2025</strong></td>
+                          <td width="88%" valign="top" style="padding-bottom: 8px;">I became a master student at Nanyang Technological University.</td>
+                        </tr>
+                        <tr>
+                          <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>May 2025</strong></td>
+                          <td width="88%" valign="top" style="padding-bottom: 8px;">I became an outstanding undergraduate graduate of Southwest University.</td>
+                        </tr>
+                        <tr>
+                          <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Jul 2024</strong></td>
+                          <td width="88%" valign="top" style="padding-bottom: 8px;">I became a visiting student at Westlake University.</td>
+                        </tr>
+                        <tr>
+                          <td width="12%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Apr 2024</strong></td>
+                          <td width="88%" valign="top" style="padding-bottom: 8px;">One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <table id="research" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Research</heading>
-                  <p>My research focuses on sample-efficient online robot learning for open-world manipulation. I study how to improve the generalization of VLA under limited real-robot interaction. I think reinforcement learning and other loop paradigm (e.g. World Model, Supervised Learning) are necessary for it.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <table id="research" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    <heading>Research</heading>
+                    <p>My research focuses on sample-efficient online robot learning for open-world manipulation. I study how to improve the generalization of VLA under limited real-robot interaction. I think reinforcement learning and other loop paradigm (e.g. World Model, Supervised Learning) are necessary for it.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr class="paper-row">
-                <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/34.png" class="paper-img" />
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:top">
-                  <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf" target="_blank">
-                    <papertitle>A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation</papertitle>
-                  </a>
-                  Haoyuan Deng, Zhenyu Wu, Haichao Liu, Wenkai Guo, Yuquan Xue, Ziyu Shan, Chuanrui Zhang, <span class="me">Bofang Jia</span>, Yuan Ling, Guanxing Lu, and Ziwei Wang<br>
-                  <em>Github</em>, 2025<br>
-                  <div style="margin-top: 6px;">
-                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA" class="btn">Project Page</a>
-                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf" class="btn">Paper</a>
-                    <a href="#" class="btn">Code</a>
-                  </div>
-                  <p style="margin-top: 10px; font-size: 14px;">This survey takes an end-to-end from pretraining to real-world deployment perspective to systematically review RL-VLA architectures, training paradigms, real-world deployment frameworks, and evaluation benchmarks, showing how reinforcement learning overcomes the OOD generalization limits of purely imitation-trained VLAs and outlining paths toward general robotic systems.</p>
-                </td>
-              </tr>
+            <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+              <tbody>
+                <tr class="paper-row">
+                  <td style="padding:20px;width:25%;vertical-align:top">
+                    <img src="images/34.png" class="paper-img" />
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:top">
+                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf" target="_blank">
+                      <papertitle>A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation</papertitle>
+                    </a>
+                    Haoyuan Deng, Zhenyu Wu, Haichao Liu, Wenkai Guo, Yuquan Xue, Ziyu Shan, Chuanrui Zhang, <span class="me">Bofang Jia</span>, Yuan Ling, Guanxing Lu, and Ziwei Wang<br>
+                    <em>Github</em>, 2025<br>
+                    <div style="margin-top: 6px;">
+                      <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA" class="btn">Project Page</a>
+                      <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf" class="btn">Paper</a>
+                      <a href="#" class="btn">Code</a>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 14px;">This survey takes an end-to-end from pretraining to real-world deployment perspective to systematically review RL-VLA architectures, training paradigms, real-world deployment frameworks, and evaluation benchmarks, showing how reinforcement learning overcomes the OOD generalization limits of purely imitation-trained VLAs and outlining paths toward general robotic systems.</p>
+                  </td>
+                </tr>
 
-              <tr class="paper-row">
-                <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/35.png" class="paper-img" />
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:top">
-                  <a href="https://arxiv.org/pdf/2510.17640?" target="_blank">
-                    <papertitle>RESample: A Robust Data Augmentation Framework via Exploratory Sampling for Robotic Manipulation</papertitle>
-                  </a>
-                  Yuquan Xue, Guanxing Lu, Zhenyu Wu, Chuanrui Zhang, <span class="me">Bofang Jia</span>, Zhengyi Gu, Yansong Tang, Ziwei Wang<br>
-                  <em>arXiv</em>, 2025<br>
-                  <div style="margin-top: 6px;">
-                    <a href="#" class="btn">Project Page</a>
-                    <a href="https://arxiv.org/pdf/2510.17640?" class="btn">Paper</a>
-                    <a href="#" class="btn">Code</a>
-                  </div>
-                  <p style="margin-top: 10px; font-size: 14px;">RESample avoids collecting large amounts of new failure data and running expensive online RL by using an offline RL value network together with an exploratory sampling mechanism that automatically mines and generates OOD bottleneck states from existing demonstrations and rollouts, and then adds these error-prone, recovery-critical segments into the VLA imitation learning dataset so that the VLA learns to recover from OOD states.</p>
-                </td>
-              </tr>
-              
-              <tr class="paper-row">
-                <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/30.png" class="paper-img" />
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:top">
-                  <a href="https://arxiv.org/pdf/2505.03912" target="_blank">
-                    <papertitle>OpenHelix: A Short Survey, Empirical Analysis, and Open-Source Dual-System VLA Model for Robotic Manipulation</papertitle>
-                  </a>
-                  Can Cui, Pengxiang Ding, Wenxuan Song, Shuanghao Bai, Xinyang Tong, Zirui Ge, Runze Suo, Wanqi Zhou, Yang Liu, <span class="me">Bofang Jia</span>, Hangyu Liu, Mingyang Sun, Han Zhao, Siteng Huang, Donglin Wang<br>
-                  <em>arXiv</em>, 2025<br>
-                  <div style="margin-top: 6px;">
-                    <a href="https://openhelix-robot.github.io/" class="btn">Project Page</a>
-                    <a href="https://arxiv.org/pdf/2505.03912" class="btn">Paper</a>
-                    <a href="https://github.com/OpenHelix-robot/OpenHelix" class="btn">Code</a>
-                  </div>
-                  <p style="margin-top: 10px; font-size: 14px;">OpenHelix is a dual-system framework for robotics(VLA Model), which leverages the reasoning capabilities of high-level multimodal large language models (MLLMs) to enhance low-level policies with minimal training cost. This work first summarizes and compares the structural designs of existing dual-system architectures, and then conducts systematic empirical evaluations on their core design elements. Finally, we present a low-cost open-source model to support further research and applications.</p>
-                </td>
-              </tr>
+                <tr class="paper-row">
+                  <td style="padding:20px;width:25%;vertical-align:top">
+                    <img src="images/35.png" class="paper-img" />
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:top">
+                    <a href="https://arxiv.org/pdf/2510.17640?" target="_blank">
+                      <papertitle>RESample: A Robust Data Augmentation Framework via Exploratory Sampling for Robotic Manipulation</papertitle>
+                    </a>
+                    Yuquan Xue, Guanxing Lu, Zhenyu Wu, Chuanrui Zhang, <span class="me">Bofang Jia</span>, Zhengyi Gu, Yansong Tang, Ziwei Wang<br>
+                    <em>arXiv</em>, 2025<br>
+                    <div style="margin-top: 6px;">
+                      <a href="#" class="btn">Project Page</a>
+                      <a href="https://arxiv.org/pdf/2510.17640?" class="btn">Paper</a>
+                      <a href="#" class="btn">Code</a>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 14px;">RESample avoids collecting large amounts of new failure data and running expensive online RL by using an offline RL value network together with an exploratory sampling mechanism that automatically mines and generates OOD bottleneck states from existing demonstrations and rollouts, and then adds these error-prone, recovery-critical segments into the VLA imitation learning dataset so that the VLA learns to recover from OOD states.</p>
+                  </td>
+                </tr>
+                
+                <tr class="paper-row">
+                  <td style="padding:20px;width:25%;vertical-align:top">
+                    <img src="images/30.png" class="paper-img" />
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:top">
+                    <a href="https://arxiv.org/pdf/2505.03912" target="_blank">
+                      <papertitle>OpenHelix: A Short Survey, Empirical Analysis, and Open-Source Dual-System VLA Model for Robotic Manipulation</papertitle>
+                    </a>
+                    Can Cui, Pengxiang Ding, Wenxuan Song, Shuanghao Bai, Xinyang Tong, Zirui Ge, Runze Suo, Wanqi Zhou, Yang Liu, <span class="me">Bofang Jia</span>, Hangyu Liu, Mingyang Sun, Han Zhao, Siteng Huang, Donglin Wang<br>
+                    <em>arXiv</em>, 2025<br>
+                    <div style="margin-top: 6px;">
+                      <a href="https://openhelix-robot.github.io/" class="btn">Project Page</a>
+                      <a href="https://arxiv.org/pdf/2505.03912" class="btn">Paper</a>
+                      <a href="https://github.com/OpenHelix-robot/OpenHelix" class="btn">Code</a>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 14px;">OpenHelix is a dual-system framework for robotics(VLA Model), which leverages the reasoning capabilities of high-level multimodal large language models (MLLMs) to enhance low-level policies with minimal training cost. This work first summarizes and compares the structural designs of existing dual-system architectures, and then conducts systematic empirical evaluations on their core design elements. Finally, we present a low-cost open-source model to support further research and applications.</p>
+                  </td>
+                </tr>
 
-              <tr class="paper-row">
-                <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/28.svg" class="paper-img" />
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:top">
-                  <a href="https://arxiv.org/pdf/2412.09265" target="_blank">
-                    <papertitle>Score and Distribution Matching Policy: Advanced Accelerated Visuomotor Policies via Matched Distillation</papertitle>
-                  </a>
-                  <span class="me">Bofang Jia</span>, Pengxiang Ding, Can Cui, Mingyang Sun, Pengfang Qian, Siteng Huang, Zhaoxin Fan, Donglin Wang<br>
-                  <em>arXiv</em>, 2024<br>
-                  <div style="margin-top: 6px;">
-                    <a href="https://sdm-policy.github.io/" class="btn">Project Page</a>
-                    <a href="https://arxiv.org/pdf/2412.09265" class="btn">Paper</a>
-                    <a href="https://github.com/BofangJia1227/SDM-Policy" class="btn">Code</a>
-                  </div>
-                  <p style="margin-top: 10px; font-size: 14px;">SDM Policy distills diffusion-based visuomotor policies into one-step generators via a two-stage process combining score and distribution matching. It uses a dual-teacher setup to enhance robustness and achieves 6 times faster inference.</p>
-                </td>
-              </tr>
+                <tr class="paper-row">
+                  <td style="padding:20px;width:25%;vertical-align:top">
+                    <img src="images/28.svg" class="paper-img" />
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:top">
+                    <a href="https://arxiv.org/pdf/2412.09265" target="_blank">
+                      <papertitle>Score and Distribution Matching Policy: Advanced Accelerated Visuomotor Policies via Matched Distillation</papertitle>
+                    </a>
+                    <span class="me">Bofang Jia</span>, Pengxiang Ding, Can Cui, Mingyang Sun, Pengfang Qian, Siteng Huang, Zhaoxin Fan, Donglin Wang<br>
+                    <em>arXiv</em>, 2024<br>
+                    <div style="margin-top: 6px;">
+                      <a href="https://sdm-policy.github.io/" class="btn">Project Page</a>
+                      <a href="https://arxiv.org/pdf/2412.09265" class="btn">Paper</a>
+                      <a href="https://github.com/BofangJia1227/SDM-Policy" class="btn">Code</a>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 14px;">SDM Policy distills diffusion-based visuomotor policies into one-step generators via a two-stage process combining score and distribution matching. It uses a dual-teacher setup to enhance robustness and achieves 6 times faster inference.</p>
+                  </td>
+                </tr>
 
-              <tr class="paper-row">
-                <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/18.png" class="paper-img" />
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:top">
-                  <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4" target="_blank">
-                    <papertitle>DLEE: A Dataset for Chinese Document-level Legal Event Extraction</papertitle>
-                  </a>
-                  Guochuan Xian, Siyuan Du, Xi Tang, Yuan Shi, <span class="me">Bofang Jia</span>, Banghao Tang, Zhefu Leng, Li Li<br>
-                  <em>Neural Computing and Applications (NCAA)</em>, 2024<br>
-                  <div style="margin-top: 6px;">
-                    <a href="https://anonymous.4open.science/r/DLEE-DATA/README.md" class="btn">Project Page</a>
-                    <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4" class="btn">Paper</a>
-                    <a href="#" class="btn">Code</a>
-                  </div>
-                  <p style="margin-top: 10px; font-size: 14px;">DLEE is a high-quality Chinese dataset for document-level legal event extraction, enabling training and evaluation of NLP models in complex legal reasoning contexts.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                <tr class="paper-row">
+                  <td style="padding:20px;width:25%;vertical-align:top">
+                    <img src="images/18.png" class="paper-img" />
+                  </td>
+                  <td style="padding:20px;width:75%;vertical-align:top">
+                    <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4" target="_blank">
+                      <papertitle>DLEE: A Dataset for Chinese Document-level Legal Event Extraction</papertitle>
+                    </a>
+                    Guochuan Xian, Siyuan Du, Xi Tang, Yuan Shi, <span class="me">Bofang Jia</span>, Banghao Tang, Zhefu Leng, Li Li<br>
+                    <em>Neural Computing and Applications (NCAA)</em>, 2024<br>
+                    <div style="margin-top: 6px;">
+                      <a href="https://anonymous.4open.science/r/DLEE-DATA/README.md" class="btn">Project Page</a>
+                      <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4" class="btn">Paper</a>
+                      <a href="#" class="btn">Code</a>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 14px;">DLEE is a high-quality Chinese dataset for document-level legal event extraction, enabling training and evaluation of NLP models in complex legal reasoning contexts.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <table id="honors" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Honors and Awards</heading>
-                  <ul style="margin-top: 10px; padding-left: 20px;">
-                    <li style="margin-bottom: 6px;">Outstanding undergraduate graduate of Southwest University</li>
-                    <li style="margin-bottom: 6px;">Southwest University First-Class Scholarship (Top 3%)</li>
-                    <li style="margin-bottom: 6px;">Southwest University Second-Class Scholarship (Top 8%)</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <table id="honors" class="section-anchor" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;width:100%;vertical-align:middle">
+                    <heading>Honors and Awards</heading>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                      <li style="margin-bottom: 6px;">Outstanding undergraduate graduate of Southwest University</li>
+                      <li style="margin-bottom: 6px;">Southwest University First-Class Scholarship (Top 3%)</li>
+                      <li style="margin-bottom: 6px;">Southwest University Second-Class Scholarship (Top 8%)</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <div style="margin-bottom: 40px;"></div>
-          <div style="text-align:center; margin: auto; width: 28%;">
-            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=R4ZWDxOt458-K5dJvgaUWC8VWpGQWbEc07baB-DFAeM"></script>
-          </div>
+            <div style="margin-bottom: 40px;"></div>
+            <div style="text-align:center; margin: auto; width: 28%;">
+              <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=R4ZWDxOt458-K5dJvgaUWC8VWpGQWbEc07baB-DFAeM"></script>
+            </div>
 
-          <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;">
-                  <br>
-                  <p style="text-align:right;font-size:small;">
-                    <a href="https://github.com/jonbarron/jonbarron_website">Template from Jon Barron's website</a>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+              <tbody>
+                <tr>
+                  <td style="padding:20px;">
+                    <br>
+                    <p style="text-align:right;font-size:small;">
+                      <a href="https://github.com/jonbarron/jonbarron_website">Template from Jon Barron's website</a>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <script>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // --- 1. 智能显示/隐藏逻辑 (Hide on Scroll Down) ---
+      const nav = document.getElementById('smart-nav');
+      let lastScrollY = window.scrollY; // 记录上一次的滚动位置
+
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        // 判断滚动方向
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // 向下滚动且距离顶部超过100px：隐藏导航栏
+          nav.classList.add('nav-hidden');
+        } else {
+          // 向上滚动：显示导航栏
+          nav.classList.remove('nav-hidden');
+        }
+        
+        lastScrollY = currentScrollY; // 更新滚动位置
+      });
+
+      // --- 2. 滚动高亮逻辑 (Scrollspy) ---
       const sections = [
         document.getElementById('home'),
-        document.getElementById('news'),
         document.getElementById('research'),
+        document.getElementById('news'),
         document.getElementById('honors')
       ];
-      
       const navLinks = document.querySelectorAll('.nav-link');
 
-      function updateNav() {
+      function updateNavHighlight() {
         let currentId = 'home';
         
         sections.forEach(section => {
           if (section) {
             const sectionTop = section.getBoundingClientRect().top;
+            // 因为加了 section-anchor的 scroll-margin-top，判断范围稍微放大
             if (sectionTop <= 150) {
               currentId = section.getAttribute('id');
             }
@@ -458,8 +490,9 @@
         });
       }
 
-      updateNav();
-      window.addEventListener('scroll', updateNav);
+      // 绑定 Scrollspy 事件并初始化
+      window.addEventListener('scroll', updateNavHighlight);
+      updateNavHighlight();
     });
   </script>
 

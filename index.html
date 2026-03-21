@@ -6,14 +6,11 @@
   <meta name="author" content="Bofang Jia">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Custom stylesheet -->
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/33.png">
 
-  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Custom Styles -->
   <style>
     a:link,
     a:visited {
@@ -53,14 +50,28 @@
   </style>
 </head>
 
-
 <body>
   <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
     <tbody>
-      <tr>
-        <td>
-          <!-- Header Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:20px;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:0px">
+                  <p style="text-align:center; font-size: 16px;">
+                    <a href="#home">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#news">News</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#research">Research</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#honors">Honors</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table id="home" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
               <tr>
                 <td style="padding:2.5%;width:71%;vertical-align:middle">
@@ -79,6 +90,8 @@
                     <a href="https://www.linkedin.com/in/%E5%8D%9A%E6%96%B9-%E8%B4%BE-b5a555386/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                     &nbsp;/&nbsp;
                     <a href="https://bofangjia.github.io/blog.html" target="_blank"><i class="fas fa-blog"></i> Blog</a>
+                    &nbsp;/&nbsp;
+                    <a href="https://www.xiaohongshu.com/user/profile/60dc66470000000001003720" target="_blank"><i class="fas fa-book-open"></i> 小红书/rednote</a>
                   </p>
                 </td>
                 <td style="padding:2.5%;width:29%;max-width:40%">
@@ -88,40 +101,49 @@
             </tbody>
           </table>
 
-          <!-- News Section -->
           <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>News</heading>
-                  <ul>
-                    <li>[Aug. 2025] I became a master student at Nanyang Technological University.</li>
-                    <li>[May 2025] I became an outstanding undergraduate graduate of Southwest University.</li>
-                    <li>[Jul 2024] I became a visiting student at Westlake University.</li>
-                    <li>[Apr 2024] One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</li>
-                  </ul>
+                  <heading id="news">News</heading>
                 </td>
               </tr>
             </tbody>
           </table>
+          <table width="100%" align="center" border="0" cellpadding="10" style="margin-left: 10px;">
+            <tbody>
+              <tr>
+                <td width="15%" valign="top"><strong>Aug 2025</strong></td>
+                <td width="85%" valign="top">I became a master student at Nanyang Technological University.</td>
+              </tr>
+              <tr>
+                <td width="15%" valign="top"><strong>May 2025</strong></td>
+                <td width="85%" valign="top">I became an outstanding undergraduate graduate of Southwest University.</td>
+              </tr>
+              <tr>
+                <td width="15%" valign="top"><strong>Jul 2024</strong></td>
+                <td width="85%" valign="top">I became a visiting student at Westlake University.</td>
+              </tr>
+              <tr>
+                <td width="15%" valign="top"><strong>Apr 2024</strong></td>
+                <td width="85%" valign="top">One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</td>
+              </tr>
+            </tbody>
+          </table>
 
-          <!-- Research Section -->
           <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Research</heading>
+                  <heading id="research">Research</heading>
                   <p>My research focuses on sample-efficient online robot learning for open-world manipulation. I study how to improve the generalization of VLA under limited real-robot interaction. I think reinforcement learning and other loop paradigm (e.g. World Model, Supervised Learning) are necessary for it.</p>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <!-- Publications Section -->
           <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
-
-              <!-- Survey_RL-VLA -->
               <tr>
                 <td style="padding:20px;width:30%;vertical-align:top">
                   <a href=""><img src="images/34.png" style="width:107%;max-width:107%;" /></a>
@@ -130,15 +152,14 @@
                   <papertitle>A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation</papertitle>
                   <br>Haoyuan Deng, Zhenyu Wu, Haichao Liu, Wenkai Guo, Yuquan Xue, Ziyu Shan, Chuanrui Zhang, <b>Bofang Jia</b>, Yuan Ling, Guanxing Lu, and Ziwei Wang
                   <br><em>Github</em>, 2025
-                  <br><a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA">[Project Page]</a> 
-                  <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf">[Paper]</a> 
-                  <a href="">[Code]</a>
+                  <br>
+                  <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA">Project Page</a> / 
+                  <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf">Paper</a> / 
+                  <a href="">Code</a>
                   <p>This survey takes an end-to-end from pretraining to real-world deployment perspective to systematically review RL-VLA architectures, training paradigms, real-world deployment frameworks, and evaluation benchmarks, showing how reinforcement learning overcomes the OOD generalization limits of purely imitation-trained VLAs and outlining paths toward general robotic systems.</p>
                 </td>
               </tr>
 
-
-              <!-- RESample -->
               <tr>
                 <td style="padding:20px;width:30%;vertical-align:top">
                   <a href=""><img src="images/35.png" style="width:107%;max-width:107%;" /></a>
@@ -147,14 +168,14 @@
                   <papertitle>RESample: A Robust Data Augmentation Framework via Exploratory Sampling for Robotic Manipulation</papertitle>
                   <br>Yuquan Xue, Guanxing Lu, Zhenyu Wu, Chuanrui Zhang, <b>Bofang Jia</b>, Zhengyi Gu, Yansong Tang, Ziwei Wang
                   <br><em>arXiv</em>, 2025
-                  <br><a href="">[Project Page]</a> 
-                  <a href="https://arxiv.org/pdf/2510.17640?">[Paper]</a> 
-                  <a href="">[Code]</a>
+                  <br>
+                  <a href="">Project Page</a> / 
+                  <a href="https://arxiv.org/pdf/2510.17640?">Paper</a> / 
+                  <a href="">Code</a>
                   <p>RESample avoids collecting large amounts of new failure data and running expensive online RL by using an offline RL value network together with an exploratory sampling mechanism that automatically mines and generates OOD bottleneck states from existing demonstrations and rollouts, and then adds these error-prone, recovery-critical segments into the VLA imitation learning dataset so that the VLA learns to recover from OOD states.</p>
                 </td>
               </tr>
               
-              <!-- OpenHelix -->
               <tr>
                 <td style="padding:20px;width:30%;vertical-align:top">
                   <a href="https://openhelix-robot.github.io/"><img src="images/30.png" style="width:107%;max-width:107%;" /></a>
@@ -163,14 +184,14 @@
                   <papertitle>OpenHelix: A Short Survey, Empirical Analysis, and Open-Source Dual-System VLA Model for Robotic Manipulation</papertitle>
                   <br>Can Cui, Pengxiang Ding, Wenxuan Song, Shuanghao Bai, Xinyang Tong, Zirui Ge, Runze Suo, Wanqi Zhou, Yang Liu, <b>Bofang Jia</b>, Hangyu Liu, Mingyang Sun, Han Zhao, Siteng Huang, Donglin Wang
                   <br><em>arXiv</em>, 2025
-                  <br><a href="https://openhelix-robot.github.io/">[Project Page]</a> 
-                  <a href="https://arxiv.org/pdf/2505.03912">[Paper]</a> 
-                  <a href="https://github.com/OpenHelix-robot/OpenHelix">[Code]</a>
+                  <br>
+                  <a href="https://openhelix-robot.github.io/">Project Page</a> / 
+                  <a href="https://arxiv.org/pdf/2505.03912">Paper</a> / 
+                  <a href="https://github.com/OpenHelix-robot/OpenHelix">Code</a>
                   <p>OpenHelix is a dual-system framework for robotics(VLA Model), which leverages the reasoning capabilities of high-level multimodal large language models (MLLMs) to enhance low-level policies with minimal training cost. This work first summarizes and compares the structural designs of existing dual-system architectures, and then conducts systematic empirical evaluations on their core design elements. Finally, we present a low-cost open-source model to support further research and applications.</p>
                 </td>
               </tr>
 
-              <!-- SDM Policy -->
               <tr>
                 <td style="padding:20px;width:30%;vertical-align:top">
                   <a href="https://sdm-policy.github.io/"><img src="images/28.svg" style="width:107%;max-width:107%;" /></a>
@@ -179,14 +200,14 @@
                   <papertitle>Score and Distribution Matching Policy: Advanced Accelerated Visuomotor Policies via Matched Distillation</papertitle>
                   <br><b>Bofang Jia</b>, Pengxiang Ding, Can Cui, Mingyang Sun, Pengfang Qian, Siteng Huang, Zhaoxin Fan, Donglin Wang
                   <br><em>arXiv</em>, 2024
-                  <br><a href="https://sdm-policy.github.io/">[Project Page]</a> 
-                  <a href="https://arxiv.org/pdf/2412.09265">[Paper]</a> 
-                  <a href="https://github.com/BofangJia1227/SDM-Policy">[Code]</a>
+                  <br>
+                  <a href="https://sdm-policy.github.io/">Project Page</a> / 
+                  <a href="https://arxiv.org/pdf/2412.09265">Paper</a> / 
+                  <a href="https://github.com/BofangJia1227/SDM-Policy">Code</a>
                   <p>SDM Policy distills diffusion-based visuomotor policies into one-step generators via a two-stage process combining score and distribution matching. It uses a dual-teacher setup to enhance robustness and achieves 6 times faster inference.</p>
                 </td>
               </tr>
 
-              <!-- DLEE -->
               <tr>
                 <td style="padding:20px;width:30%;vertical-align:top">
                   <a href="https://anonymous.4open.science/r/DLEE-DATA/README.md"><img src="images/18.png" style="width:107%;max-width:107%;" /></a>
@@ -195,21 +216,21 @@
                   <papertitle>DLEE: A Dataset for Chinese Document-level Legal Event Extraction</papertitle>
                   <br>Guochuan Xian, Siyuan Du, Xi Tang, Yuan Shi, <b>Bofang Jia</b>, Banghao Tang, Zhefu Leng, Li Li
                   <br><em>Neural Computing and Applications (NCAA)</em>, 2024
-                  <br><a href="https://anonymous.4open.science/r/DLEE-DATA/README.md">[Project Page]</a> 
-                  <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4">[Paper]</a> 
-                  <a href="#">[Code]</a>
+                  <br>
+                  <a href="https://anonymous.4open.science/r/DLEE-DATA/README.md">Project Page</a> / 
+                  <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4">Paper</a> / 
+                  <a href="#">Code</a>
                   <p>DLEE is a high-quality Chinese dataset for document-level legal event extraction, enabling training and evaluation of NLP models in complex legal reasoning contexts.</p>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <!-- Honors Section -->
           <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Honors and Awards</heading>
+                  <heading id="honors">Honors and Awards</heading>
                   <ul>
                     <li>Outstanding undergraduate graduate of Southwest University</li>
                     <li>Southwest University First-Class Scholarship (Top 3%)</li>
@@ -220,19 +241,6 @@
             </tbody>
           </table>
 
-          <!-- Robotics Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;margin:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Robotics</heading>
-                  <p>I have some experience in designing and implementing robotic systems. Here are some of the robotic systems I have helped develop: <a href="https://bofangjia.github.io/robotics.html">[Link]</a></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Footer Section -->
           <div style="margin-bottom: 40px;"></div>
           <div style="text-align:center; margin: auto; width: 28%;">
             <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=R4ZWDxOt458-K5dJvgaUWC8VWpGQWbEc07baB-DFAeM"></script>
@@ -250,10 +258,10 @@
               </tr>
             </tbody>
           </table>
+          
         </td>
       </tr>
     </tbody>
   </table>
 </body>
 </html>
-

@@ -50,6 +50,8 @@
       color: #222;
       margin-top: 10px;
       margin-bottom: 15px; /* 增加标题和下方内容的呼吸感 */
+      border-bottom: 1px solid #ddd; /* 如图一所示淡淡的细线 */
+      padding-bottom: 10px; /* 为细线和内容腾出空间 */
     }
 
     /* 论文标题优化：独立成块，拉开间距 */
@@ -69,6 +71,12 @@
 
     td {
       color: #444;
+    }
+
+    /* 新闻日期颜色优化：如图二所示较淡的灰色 */
+    td.news-date {
+      color: #666; /* 图二中淡淡的字体颜色 */
+      font-weight: 500;
     }
   </style>
 </head>
@@ -119,7 +127,7 @@
                 </td>
                 <td style="padding:20px;width:29%;max-width:40%">
                   <img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/17.JPG" class="hoverZoomLink">
-                  </td>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -132,19 +140,19 @@
                   <table width="100%" align="center" border="0" cellpadding="0">
                     <tbody>
                       <tr>
-                        <td width="15%" valign="top" style="padding-bottom: 8px;"><strong>Aug 2025</strong></td>
+                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Aug 2025</strong></td>
                         <td width="85%" valign="top" style="padding-bottom: 8px;">I became a master student at Nanyang Technological University.</td>
                       </tr>
                       <tr>
-                        <td width="15%" valign="top" style="padding-bottom: 8px;"><strong>May 2025</strong></td>
+                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>May 2025</strong></td>
                         <td width="85%" valign="top" style="padding-bottom: 8px;">I became an outstanding undergraduate graduate of Southwest University.</td>
                       </tr>
                       <tr>
-                        <td width="15%" valign="top" style="padding-bottom: 8px;"><strong>Jul 2024</strong></td>
+                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Jul 2024</strong></td>
                         <td width="85%" valign="top" style="padding-bottom: 8px;">I became a visiting student at Westlake University.</td>
                       </tr>
                       <tr>
-                        <td width="15%" valign="top" style="padding-bottom: 8px;"><strong>Apr 2024</strong></td>
+                        <td width="15%" valign="top" class="news-date" style="padding-bottom: 8px;"><strong>Apr 2024</strong></td>
                         <td width="85%" valign="top" style="padding-bottom: 8px;">One paper “DLEE: A Dataset for Chinese Document-level Legal Event Extraction” got accepted to NCAA.</td>
                       </tr>
                     </tbody>

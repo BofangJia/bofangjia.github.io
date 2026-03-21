@@ -6,22 +6,30 @@
   <meta name="author" content="Bofang Jia">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/33.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* 全局字体、颜色与行高 */
+    /* 全局字体使用 Inter */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 15px;
       line-height: 1.6;
-      color: #444; /* 柔和的深灰色正文 */
+      color: #444; 
       background-color: #fff;
     }
 
-    /* 链接颜色优化：学术蓝与橙红悬浮 */
+    /* 链接平滑过渡动画 */
+    a {
+      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.2s ease;
+    }
+
     a:link,
     a:visited {
       color: #1772d0;
@@ -38,7 +46,7 @@
       display: block;
       font-size: 32px;
       font-weight: 500;
-      color: #222; /* 标题采用更深的暗色 */
+      color: #222; 
       margin-bottom: 10px;
       line-height: 1.2;
     }
@@ -49,12 +57,11 @@
       font-weight: 600;
       color: #222;
       margin-top: 10px;
-      margin-bottom: 15px; /* 增加标题和下方内容的呼吸感 */
-      border-bottom: 1px solid #ddd; /* 如图一所示淡淡的细线 */
-      padding-bottom: 10px; /* 为细线和内容腾出空间 */
+      margin-bottom: 15px; 
+      border-bottom: 1px solid #ddd; /* 淡淡的细线 */
+      padding-bottom: 10px; 
     }
 
-    /* 论文标题优化：独立成块，拉开间距 */
     papertitle {
       display: block;
       font-weight: 600;
@@ -73,10 +80,65 @@
       color: #444;
     }
 
-    /* 新闻日期颜色优化：如图二所示较淡的灰色 */
+    /* 较淡的日期颜色 */
     td.news-date {
-      color: #666; /* 图二中淡淡的字体颜色 */
+      color: #666; 
       font-weight: 500;
+    }
+
+    /* 顶部导航栏高级排版 */
+    .nav-link {
+      text-transform: uppercase; /* 字母大写 */
+      letter-spacing: 0.8px;     /* 增加字间距 */
+      font-size: 14px;
+      font-weight: 600;
+      color: #555 !important;
+    }
+    .nav-link:hover {
+      color: #1772d0 !important;
+    }
+    .nav-separator {
+      color: #ddd;
+      margin: 0 12px;
+      font-weight: 300;
+    }
+
+    /* 论文图片悬浮微微放大，增加质感 */
+    .paper-img {
+      width: 100%;
+      max-width: 100%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .paper-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+
+    /* 胶囊形状的论文链接按钮 */
+    .btn {
+      display: inline-block;
+      padding: 3px 12px;
+      margin-right: 6px;
+      margin-top: 6px;
+      background-color: #f1f3f4;
+      color: #1a73e8 !important;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background-color: #e8f0fe;
+      text-decoration: none !important;
+    }
+
+    /* 名字专属的高级感下划线高亮 */
+    .me {
+      font-weight: 600;
+      color: #222;
+      border-bottom: 2px solid #1a73e8; /* 科技蓝下划线 */
     }
   </style>
 </head>
@@ -90,13 +152,11 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:30px;margin-bottom:10px;">
             <tbody>
               <tr style="padding:0px">
-                <td style="padding:0px">
-                  <p style="text-align:center; font-size: 15px; font-weight: 500;">
-                    <a href="#home">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="#news">News</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="#research">Research</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a href="#honors">Honors</a>
-                  </p>
+                <td style="padding:0px; padding-right: 20px; text-align: right;">
+                  <a href="#home" class="nav-link">Home</a> <span class="nav-separator">|</span>
+                  <a href="#news" class="nav-link">News</a> <span class="nav-separator">|</span>
+                  <a href="#research" class="nav-link">Research</a> <span class="nav-separator">|</span>
+                  <a href="#honors" class="nav-link">Honors</a>
                 </td>
               </tr>
             </tbody>
@@ -177,96 +237,96 @@
             <tbody>
               <tr>
                 <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/34.png" style="width:100%;max-width:100%;box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                  <img src="images/34.png" class="paper-img" />
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:top">
                   <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf" target="_blank">
                     <papertitle>A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation</papertitle>
                   </a>
-                  Haoyuan Deng, Zhenyu Wu, Haichao Liu, Wenkai Guo, Yuquan Xue, Ziyu Shan, Chuanrui Zhang, <b>Bofang Jia</b>, Yuan Ling, Guanxing Lu, and Ziwei Wang<br>
+                  Haoyuan Deng, Zhenyu Wu, Haichao Liu, Wenkai Guo, Yuquan Xue, Ziyu Shan, Chuanrui Zhang, <span class="me">Bofang Jia</span>, Yuan Ling, Guanxing Lu, and Ziwei Wang<br>
                   <em>Github</em>, 2025<br>
-                  <div style="margin-top: 6px; font-size: 14px;">
-                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA">Project Page</a> / 
-                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf">Paper</a> / 
-                    <a href="">Code</a>
+                  <div style="margin-top: 6px;">
+                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA" class="btn">Project Page</a>
+                    <a href="https://github.com/Denghaoyuan123/Awesome-RL-VLA/blob/main/A_Survey_on_Reinforcement_Learning_of_Vision-Language-Action_Models_for_Robotic_Manipulation.pdf" class="btn">Paper</a>
+                    <a href="#" class="btn">Code</a>
                   </div>
-                  <p style="margin-top: 8px; font-size: 14px;">This survey takes an end-to-end from pretraining to real-world deployment perspective to systematically review RL-VLA architectures, training paradigms, real-world deployment frameworks, and evaluation benchmarks, showing how reinforcement learning overcomes the OOD generalization limits of purely imitation-trained VLAs and outlining paths toward general robotic systems.</p>
+                  <p style="margin-top: 10px; font-size: 14px;">This survey takes an end-to-end from pretraining to real-world deployment perspective to systematically review RL-VLA architectures, training paradigms, real-world deployment frameworks, and evaluation benchmarks, showing how reinforcement learning overcomes the OOD generalization limits of purely imitation-trained VLAs and outlining paths toward general robotic systems.</p>
                 </td>
               </tr>
 
               <tr>
                 <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/35.png" style="width:100%;max-width:100%;box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                  <img src="images/35.png" class="paper-img" />
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:top">
                   <a href="https://arxiv.org/pdf/2510.17640?" target="_blank">
                     <papertitle>RESample: A Robust Data Augmentation Framework via Exploratory Sampling for Robotic Manipulation</papertitle>
                   </a>
-                  Yuquan Xue, Guanxing Lu, Zhenyu Wu, Chuanrui Zhang, <b>Bofang Jia</b>, Zhengyi Gu, Yansong Tang, Ziwei Wang<br>
+                  Yuquan Xue, Guanxing Lu, Zhenyu Wu, Chuanrui Zhang, <span class="me">Bofang Jia</span>, Zhengyi Gu, Yansong Tang, Ziwei Wang<br>
                   <em>arXiv</em>, 2025<br>
-                  <div style="margin-top: 6px; font-size: 14px;">
-                    <a href="">Project Page</a> / 
-                    <a href="https://arxiv.org/pdf/2510.17640?">Paper</a> / 
-                    <a href="">Code</a>
+                  <div style="margin-top: 6px;">
+                    <a href="#" class="btn">Project Page</a>
+                    <a href="https://arxiv.org/pdf/2510.17640?" class="btn">Paper</a>
+                    <a href="#" class="btn">Code</a>
                   </div>
-                  <p style="margin-top: 8px; font-size: 14px;">RESample avoids collecting large amounts of new failure data and running expensive online RL by using an offline RL value network together with an exploratory sampling mechanism that automatically mines and generates OOD bottleneck states from existing demonstrations and rollouts, and then adds these error-prone, recovery-critical segments into the VLA imitation learning dataset so that the VLA learns to recover from OOD states.</p>
+                  <p style="margin-top: 10px; font-size: 14px;">RESample avoids collecting large amounts of new failure data and running expensive online RL by using an offline RL value network together with an exploratory sampling mechanism that automatically mines and generates OOD bottleneck states from existing demonstrations and rollouts, and then adds these error-prone, recovery-critical segments into the VLA imitation learning dataset so that the VLA learns to recover from OOD states.</p>
                 </td>
               </tr>
               
               <tr>
                 <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/30.png" style="width:100%;max-width:100%;box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                  <img src="images/30.png" class="paper-img" />
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:top">
                   <a href="https://arxiv.org/pdf/2505.03912" target="_blank">
                     <papertitle>OpenHelix: A Short Survey, Empirical Analysis, and Open-Source Dual-System VLA Model for Robotic Manipulation</papertitle>
                   </a>
-                  Can Cui, Pengxiang Ding, Wenxuan Song, Shuanghao Bai, Xinyang Tong, Zirui Ge, Runze Suo, Wanqi Zhou, Yang Liu, <b>Bofang Jia</b>, Hangyu Liu, Mingyang Sun, Han Zhao, Siteng Huang, Donglin Wang<br>
+                  Can Cui, Pengxiang Ding, Wenxuan Song, Shuanghao Bai, Xinyang Tong, Zirui Ge, Runze Suo, Wanqi Zhou, Yang Liu, <span class="me">Bofang Jia</span>, Hangyu Liu, Mingyang Sun, Han Zhao, Siteng Huang, Donglin Wang<br>
                   <em>arXiv</em>, 2025<br>
-                  <div style="margin-top: 6px; font-size: 14px;">
-                    <a href="https://openhelix-robot.github.io/">Project Page</a> / 
-                    <a href="https://arxiv.org/pdf/2505.03912">Paper</a> / 
-                    <a href="https://github.com/OpenHelix-robot/OpenHelix">Code</a>
+                  <div style="margin-top: 6px;">
+                    <a href="https://openhelix-robot.github.io/" class="btn">Project Page</a>
+                    <a href="https://arxiv.org/pdf/2505.03912" class="btn">Paper</a>
+                    <a href="https://github.com/OpenHelix-robot/OpenHelix" class="btn">Code</a>
                   </div>
-                  <p style="margin-top: 8px; font-size: 14px;">OpenHelix is a dual-system framework for robotics(VLA Model), which leverages the reasoning capabilities of high-level multimodal large language models (MLLMs) to enhance low-level policies with minimal training cost. This work first summarizes and compares the structural designs of existing dual-system architectures, and then conducts systematic empirical evaluations on their core design elements. Finally, we present a low-cost open-source model to support further research and applications.</p>
+                  <p style="margin-top: 10px; font-size: 14px;">OpenHelix is a dual-system framework for robotics(VLA Model), which leverages the reasoning capabilities of high-level multimodal large language models (MLLMs) to enhance low-level policies with minimal training cost. This work first summarizes and compares the structural designs of existing dual-system architectures, and then conducts systematic empirical evaluations on their core design elements. Finally, we present a low-cost open-source model to support further research and applications.</p>
                 </td>
               </tr>
 
               <tr>
                 <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/28.svg" style="width:100%;max-width:100%;box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                  <img src="images/28.svg" class="paper-img" />
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:top">
                   <a href="https://arxiv.org/pdf/2412.09265" target="_blank">
                     <papertitle>Score and Distribution Matching Policy: Advanced Accelerated Visuomotor Policies via Matched Distillation</papertitle>
                   </a>
-                  <b>Bofang Jia</b>, Pengxiang Ding, Can Cui, Mingyang Sun, Pengfang Qian, Siteng Huang, Zhaoxin Fan, Donglin Wang<br>
+                  <span class="me">Bofang Jia</span>, Pengxiang Ding, Can Cui, Mingyang Sun, Pengfang Qian, Siteng Huang, Zhaoxin Fan, Donglin Wang<br>
                   <em>arXiv</em>, 2024<br>
-                  <div style="margin-top: 6px; font-size: 14px;">
-                    <a href="https://sdm-policy.github.io/">Project Page</a> / 
-                    <a href="https://arxiv.org/pdf/2412.09265">Paper</a> / 
-                    <a href="https://github.com/BofangJia1227/SDM-Policy">Code</a>
+                  <div style="margin-top: 6px;">
+                    <a href="https://sdm-policy.github.io/" class="btn">Project Page</a>
+                    <a href="https://arxiv.org/pdf/2412.09265" class="btn">Paper</a>
+                    <a href="https://github.com/BofangJia1227/SDM-Policy" class="btn">Code</a>
                   </div>
-                  <p style="margin-top: 8px; font-size: 14px;">SDM Policy distills diffusion-based visuomotor policies into one-step generators via a two-stage process combining score and distribution matching. It uses a dual-teacher setup to enhance robustness and achieves 6 times faster inference.</p>
+                  <p style="margin-top: 10px; font-size: 14px;">SDM Policy distills diffusion-based visuomotor policies into one-step generators via a two-stage process combining score and distribution matching. It uses a dual-teacher setup to enhance robustness and achieves 6 times faster inference.</p>
                 </td>
               </tr>
 
               <tr>
                 <td style="padding:20px;width:25%;vertical-align:top">
-                  <img src="images/18.png" style="width:100%;max-width:100%;box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+                  <img src="images/18.png" class="paper-img" />
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:top">
                   <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4" target="_blank">
                     <papertitle>DLEE: A Dataset for Chinese Document-level Legal Event Extraction</papertitle>
                   </a>
-                  Guochuan Xian, Siyuan Du, Xi Tang, Yuan Shi, <b>Bofang Jia</b>, Banghao Tang, Zhefu Leng, Li Li<br>
+                  Guochuan Xian, Siyuan Du, Xi Tang, Yuan Shi, <span class="me">Bofang Jia</span>, Banghao Tang, Zhefu Leng, Li Li<br>
                   <em>Neural Computing and Applications (NCAA)</em>, 2024<br>
-                  <div style="margin-top: 6px; font-size: 14px;">
-                    <a href="https://anonymous.4open.science/r/DLEE-DATA/README.md">Project Page</a> / 
-                    <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4">Paper</a> / 
-                    <a href="#">Code</a>
+                  <div style="margin-top: 6px;">
+                    <a href="https://anonymous.4open.science/r/DLEE-DATA/README.md" class="btn">Project Page</a>
+                    <a href="https://link.springer.com/article/10.1007/s00521-024-09907-4" class="btn">Paper</a>
+                    <a href="#" class="btn">Code</a>
                   </div>
-                  <p style="margin-top: 8px; font-size: 14px;">DLEE is a high-quality Chinese dataset for document-level legal event extraction, enabling training and evaluation of NLP models in complex legal reasoning contexts.</p>
+                  <p style="margin-top: 10px; font-size: 14px;">DLEE is a high-quality Chinese dataset for document-level legal event extraction, enabling training and evaluation of NLP models in complex legal reasoning contexts.</p>
                 </td>
               </tr>
             </tbody>

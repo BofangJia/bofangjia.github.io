@@ -8,250 +8,98 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Serif:wght@400&amp;family=EB+Garamond:ital@1&amp;display=swap" rel="stylesheet"/>
 <link href="images/33.png" rel="icon" type="image/png"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
-    /* 全局字体使用 Inter */
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #444; 
-      background-color: #fff;
-      margin: 0; 
-    }
+/* Paper-toned layout after wenlonghuang.com, 19 October 2026. */
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; background:#f6f3ec; }
+body { margin:0; background:#f6f3ec; color:#202020; font-family:'IBM Plex Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-size:16px; line-height:1.7; }
+p { margin:0 0 1em; }
+td { color:#202020; }
+a { color:#202020; text-decoration:underline; text-decoration-color:#b7b7b7; text-decoration-thickness:1px; text-underline-offset:4px; transition:text-decoration-color .15s ease; }
+a:hover { color:#202020; text-decoration-color:currentColor; }
+a:focus-visible { outline:2px solid #305b81; outline-offset:4px; }
+h1 { margin:0 0 18px; font-family:'IBM Plex Serif', Georgia, 'Times New Roman', serif; font-size:44px; font-weight:400; line-height:1.15; letter-spacing:-1.2px; color:#111; }
+h2 { margin:0 0 12px; font-size:20px; font-weight:600; line-height:1.4; color:#111; }
+h3 { margin:0 0 6px; font-size:17px; font-weight:600; line-height:1.45; color:#111; }
 
-    a {
-      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.2s ease;
-    }
+/* Floating navigation: shows on scroll up, hides on scroll down. */
+.top-nav-container { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:1000; display:flex; align-items:center; width:max-content; max-width:90%; padding:8px 24px; background:rgba(246,243,236,.88); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border:1px solid #e3dfd6; border-radius:50px; box-shadow:0 4px 16px rgba(32,32,32,.06); transition:transform .3s cubic-bezier(.4,0,.2,1); }
+.top-nav-container.nav-hidden { transform:translate(-50%,-150%); }
+.nav-logo { margin-right:28px; font-family:'IBM Plex Serif', Georgia, serif; font-size:18px; color:#111; text-decoration:none; }
+.nav-links-wrapper { display:inline-flex; align-items:center; }
+.nav-link { padding:4px 12px; font-size:15px; text-decoration:none; }
+.nav-link:hover { text-decoration:underline; text-decoration-color:#b7b7b7; }
+.nav-link.active { text-decoration:underline; text-decoration-color:currentColor; }
+.nav-separator { width:1px; height:14px; margin:0 2px; background:#d9d4c8; }
+.main-wrapper { margin-top:96px; }
+.section-anchor { scroll-margin-top:100px; }
 
-    a:link,
-    a:visited {
-      color: #1772d0;
-      text-decoration: none;
-    }
+/* Introduction */
+.profile-photo { display:block; width:100%; max-width:240px; height:auto; margin-left:auto; border-radius:3px; }
+.profile-links { display:flex; flex-wrap:wrap; gap:4px 20px; margin:16px 0 0; }
 
-    a:hover,
-    a:active {
-      color: #f09228;
-      text-decoration: none;
-    }
+/* Motto between the introduction and News. */
+.motto { text-align:center; padding:22px 20px 26px; }
+.motto figure { margin:0; }
+.motto blockquote { margin:0; font-family:'EB Garamond', Georgia, serif; font-style:italic; font-size:28px; line-height:1.3; color:#222; }
+.motto .nb { white-space:nowrap; }
+.motto .tell { display:block; margin-top:2px; font-size:21px; color:#8a939c; }
+.motto figcaption { margin-top:14px; font-size:12px; letter-spacing:.04em; }
+.motto figcaption, .motto figcaption a { color:#a0a8b0; text-decoration:none; }
+.motto figcaption a:hover { color:#202020; }
 
-    name {
-      display: block;
-      font-size: 32px;
-      font-weight: 500;
-      color: #222; 
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
+/* Sections are separated by hairlines. */
+#research, #honors { border-top:1px solid #e3dfd6; }
+#news .news-date { width:92px; padding-right:14px; white-space:nowrap; color:#666; font-size:13px; padding-top:2px; }
+#news .news-date strong { font-weight:500; }
+#news table td { vertical-align:top; }
 
-    heading {
-      display: block;
-      font-size: 24px;
-      font-weight: 600;
-      color: #222;
-      margin-top: 10px;
-      margin-bottom: 15px; 
-    }
-
-    papertitle {
-      display: block;
-      font-weight: 600;
-      font-size: 16px;
-      color: #222;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-
-    p {
-      margin-top: 0;
-      margin-bottom: 1em;
-    }
-
-    td {
-      color: #444;
-    }
-
-    td.news-date {
-      color: #666; 
-      font-weight: 500;
-    }
-
-    .top-nav-container {
-      position: fixed; /* 改为 fixed，脱离文档流，才能做到上滑显示/下滑隐藏 */
-      top: 25px; 
-      left: 50%; /* 绝对居中技巧 1 */
-      transform: translateX(-50%); /* 绝对居中技巧 2 */
-      z-index: 1000;
-      
-      width: max-content; 
-      max-width: 90%;
-      
-      /* 外观：白底、圆角、高级阴影 */
-      background-color: #ffffff; 
-      border-radius: 50px; 
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
-      border: 1px solid rgba(0, 0, 0, 0.04); 
-      
-      display: flex;
-      align-items: center;
-      padding: 10px 30px; 
-      
-      /* 核心动画：控制显隐的过渡时间 */
-      transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-    }
-
-    /* 当添加了 .nav-hidden 类时，导航栏向上平移并隐藏 */
-    .top-nav-container.nav-hidden {
-      transform: translate(-50%, -150%); /* 向上移动 150% 自身高度，藏出屏幕外 */
-    }
-
-    .nav-logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: #222 !important;
-      text-decoration: none;
-      margin-right: 35px; 
-      letter-spacing: -0.5px;
-    }
-
-    .nav-links-wrapper {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .nav-link {
-      text-transform: capitalize; 
-      font-size: 15px;
-      font-weight: 500;
-      color: #333 !important;
-      text-decoration: none;
-      padding: 5px 12px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-link:hover {
-      color: #1772d0 !important;
-    }
-
-    .nav-link.active {
-      color: #1772d0 !important; 
-    }
-
-    /* 完美复刻图中淡淡的竖线分隔符 */
-    .nav-separator {
-      width: 1px;
-      height: 16px; 
-      background-color: #ddd; 
-      margin: 0 5px; 
-    }
-
-    /* =============== 论文列表样式 =============== */
-    .paper-row {
-      transition: background-color 0.3s ease;
-      border-radius: 12px; 
-    }
-    .paper-row:hover {
-      background-color: #f8f9fa; 
-    }
-
-    .paper-img {
-      width: 100%;
-      max-width: 100%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-      border-radius: 4px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .paper-img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 3px 12px;
-      margin-right: 6px;
-      margin-top: 6px;
-      background-color: #f1f3f4;
-      color: #1a73e8 !important;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    .btn:hover {
-      background-color: #e8f0fe;
-      text-decoration: none !important;
-    }
-
-    .me {
-      font-weight: 600;
-      color: #222;
-      border-bottom: 2px solid #1a73e8; 
-    }
-    
-    /* 防止点击锚点时，悬浮栏遮挡标题 */
-    .section-anchor {
-      scroll-margin-top: 100px; 
-    }
-    
-    /* 由于导航栏改为了 fixed，为了防止遮挡顶部的头像内容，给最外层容器加一点上边距 */
-    .main-wrapper {
-      margin-top: 100px;
-    }
-  </style>
-<style>
-/* Publication update, 29 September 2026. */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-h1 { font-size:32px; font-weight:500; color:#222; margin:0 0 16px; text-align:center; }
-h2 { font-size:24px; font-weight:600; color:#222; margin:10px 0 15px; }
-h3 { font-size:17px; font-weight:600; line-height:1.4; margin:0 0 7px; color:#222; }
-a:hover h3 { color:#1772d0; }
-a:focus-visible { outline:2px solid #1772d0; outline-offset:4px; }
+/* Publications */
 .paper-row { scroll-margin-top:105px; }
-.paper-row + .paper-row .paper-content, .paper-row + .paper-row .paper-media { border-top:1px solid #eef0f2; }
-.paper-media { width:32%; padding:27px 20px; vertical-align:top; }
-.paper-content { width:68%; padding:25px 20px; vertical-align:top; }
-.paper-figure { margin:21px 0 0; }
-.thumb { display:block; background:#fff; overflow:hidden; border:1px solid #edf0f4; border-radius:7px; }
-.paper-img { display:block; width:100%; height:auto; box-shadow:none; border-radius:0; }
-.paper-img:hover { transform:none; box-shadow:none; }
+.paper-row + .paper-row .paper-content, .paper-row + .paper-row .paper-media { border-top:1px solid #e3dfd6; }
+.paper-media { width:31%; padding:24px 28px 22px 20px; vertical-align:top; }
+.paper-content { width:69%; padding:22px 20px 22px 0; vertical-align:top; }
+.paper-figure { margin:2px 0 0; }
+.thumb { display:block; overflow:hidden; background:#fff; border:1px solid #e3dfd6; border-radius:3px; }
+.paper-img { display:block; width:100%; height:auto; }
 /* Display the conceptual panels of the unchanged original images. */
 .worldsample .thumb { aspect-ratio:1034 / 467; }
 .worldsample .paper-img { width:132.5%; max-width:none; }
 .pact .thumb { aspect-ratio:820 / 295; }
 .pact .paper-img { width:124.3%; max-width:none; }
-figcaption { color:#586675; font-size:12px; line-height:1.5; margin-top:10px; }
-.paper-topic { font-size:11px; letter-spacing:.055em; text-transform:uppercase; color:#446482; margin:0 0 7px; font-weight:600; }
-.paper-authors { font-size:13px; line-height:1.65; margin:0 0 5px; }
-.paper-venue { font-size:13px; color:#65717c; margin:0 0 5px; font-style:italic; }
-.paper-summary { margin:12px 0 0; font-size:14px; line-height:1.75; }
-.paper-links { display:flex; flex-wrap:wrap; gap:5px 0; }
-#news table td { padding-bottom:8px; vertical-align:top; }
-#news .news-date { width:115px; padding-right:10px; white-space:nowrap; }
-@media (max-width:640px) {
-  .main-wrapper { margin-top:85px; }
-  .top-nav-container { top:15px; max-width:calc(100% - 24px); padding:9px 14px; }
+figcaption { margin-top:8px; font-size:12.5px; line-height:1.5; color:#777; }
+.paper-topic { margin:0 0 6px; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#8c8577; }
+.paper-authors { margin:0 0 2px; font-size:15px; line-height:1.6; }
+.me { font-weight:600; color:#111; text-decoration:underline; text-underline-offset:3px; }
+.paper-venue { margin:0 0 4px; font-size:15px; font-style:italic; }
+.paper-links { margin:0; font-size:15px; }
+.paper-links a + a::before { content:"/"; display:inline-block; margin:0 7px 0 3px; color:#8b8b8b; }
+.paper-summary { margin:8px 0 0; font-size:14px; line-height:1.6; color:#555; }
+
+@media (max-width:700px) {
+  body { font-size:15px; line-height:1.65; }
+  .main-wrapper { margin-top:80px; }
+  .top-nav-container { top:12px; max-width:calc(100% - 24px); padding:7px 12px; }
   .nav-logo { margin-right:8px; font-size:16px; }
-  .nav-link { font-size:12px; padding:5px 7px; }
-  .nav-separator { margin:0 1px; }
+  .nav-link { font-size:13px; padding:4px 7px; }
+  .nav-separator { margin:0; }
+  h1 { font-size:36px; }
   #home > tbody > tr { display:flex; flex-direction:column-reverse; }
-  #home > tbody > tr > td { display:block; width:100% !important; max-width:100% !important; padding:14px 20px !important; }
-  #home > tbody > tr > td:last-child { text-align:center; }
-  #home img { max-width:155px !important; }
+  #home > tbody > tr > td { display:block; width:100% !important; max-width:100% !important; padding:12px 20px !important; }
+  .profile-photo { margin:0; max-width:200px; }
+  .profile-links { gap:6px 18px; }
+  .motto blockquote { font-size:22px; }
+  .motto .tell { font-size:18px; }
+  #news .news-date { width:82px; padding-right:10px; }
   .publications, .publications > tbody { display:block; width:100%; }
-  .paper-row { display:flex; flex-direction:column; padding:20px; border-top:1px solid #eef0f2; }
+  .paper-row { display:flex; flex-direction:column; padding:20px; border-top:1px solid #e3dfd6; }
   .paper-row + .paper-row .paper-content, .paper-row + .paper-row .paper-media { border-top:0; }
-  .paper-media,.paper-content { display:block; width:100%; padding:0; }
-  .paper-media { order:2; margin-top:18px; }
+  .paper-media, .paper-content { display:block; width:100%; padding:0; }
+  .paper-media { order:2; margin-top:16px; }
   .paper-figure { margin:0; }
   .paper-figure:not(.worldsample):not(.pact) .thumb { max-width:340px; margin:auto; }
-  h3 { font-size:17px; }
-  .paper-summary { font-size:14px; }
-  #news .news-date { width:90px; font-size:13px; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none !important; } }
 </style></head>
@@ -269,7 +117,7 @@ figcaption { color:#586675; font-size:12px; line-height:1.5; margin-top:10px; }
 </div>
 </div>
 <div class="main-wrapper">
-<table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
+<table style="width:100%;max-width:1100px;border:0px;border-spacing:0px;border-collapse:separate;margin:auto;">
 <tbody>
 <tr style="padding:0px">
 <td style="padding:0px">
@@ -280,29 +128,27 @@ figcaption { color:#586675; font-size:12px; line-height:1.5; margin-top:10px; }
 <h1>Bofang Jia</h1>
 <p>I am a research-based master’s student (MEng) at Nanyang Technological University, advised by Prof. <a href="https://ziweiwangthu.github.io/" rel="noopener" target="_blank">Ziwei Wang</a> as part of the <a href="https://pine-lab-ntu.github.io/" rel="noopener" target="_blank">Pine Lab</a>.</p>
 <p>I received my Bachelor of Engineering degree from Southwest University in June 2025. During my undergraduate studies, I was also a visiting student at Westlake University, advised by Prof. <a href="https://milab.westlake.edu.cn/index.html" rel="noopener" target="_blank">Donglin Wang</a>.</p>
-<p style="text-align:center; font-size: 14px; margin-top: 15px;">
-<a href="mailto:jiabofang@outlook.com" rel="noopener" target="_blank"><i class="fas fa-envelope"></i> Email</a>
-                       / 
-                      <a href="https://scholar.google.com/citations?user=k7o_eyMAAAAJ&amp;hl=zh-CN" rel="noopener" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                       / 
-                      <a href="https://github.com/BofangJia" rel="noopener" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                       / 
-                      <a href="https://twitter.com/BofangJia78170" rel="noopener" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                       / 
-                      <a href="https://www.linkedin.com/in/%E5%8D%9A%E6%96%B9-%E8%B4%BE-b5a555386/" rel="noopener" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                       / 
-                      <a href="https://bofangjia.github.io/blog.html" rel="noopener" target="_blank"><i class="fas fa-blog"></i> Blog</a>
-                       / 
-                      <a href="https://www.xiaohongshu.com/user/profile/60dc66470000000001003720" rel="noopener" target="_blank"><i class="fas fa-book-open"></i> 小红书/rednote</a>
+<p class="profile-links">
+<a href="mailto:jiabofang@outlook.com" rel="noopener" target="_blank">Email</a>
+<a href="https://scholar.google.com/citations?user=k7o_eyMAAAAJ&amp;hl=zh-CN" rel="noopener" target="_blank">Google Scholar</a>
+<a href="https://github.com/BofangJia" rel="noopener" target="_blank">GitHub</a>
+<a href="https://twitter.com/BofangJia78170" rel="noopener" target="_blank">Twitter</a>
+<a href="https://www.linkedin.com/in/%E5%8D%9A%E6%96%B9-%E8%B4%BE-b5a555386/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://bofangjia.github.io/blog.html" rel="noopener" target="_blank">Blog</a>
+<a href="https://www.xiaohongshu.com/user/profile/60dc66470000000001003720" rel="noopener" target="_blank">小红书/rednote</a>
 </p>
 </td>
-<td style="padding:20px;width:29%;max-width:40%">
-<img alt="profile photo" class="hoverZoomLink" src="images/36.png" style="width:100%;max-width:100%;border-radius:50%;"/>
+<td style="padding:20px;width:29%;vertical-align:middle">
+<img alt="Bofang Jia" class="profile-photo" src="images/40.jpg"/>
 </td>
 </tr>
 </tbody>
 </table>
-<table class="section-anchor" id="news" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+<section aria-label="Motto" class="motto"><figure>
+<blockquote><span class="nb">Either we are out of ideas</span> <span class="nb">or we are cooking.</span><span class="tell">Time will tell.</span></blockquote>
+<figcaption>&mdash; <a href="https://x.com/thsottiaux" rel="noopener" target="_blank">Tibo</a></figcaption>
+</figure></section>
+<table class="section-anchor" id="news" style="width:100%;border-spacing:0px;margin:auto;">
 <tbody>
 <tr>
 <td style="padding:20px;width:100%;vertical-align:middle">
@@ -331,7 +177,7 @@ figcaption { color:#586675; font-size:12px; line-height:1.5; margin-top:10px; }
 </tr>
 </tbody>
 </table>
-<table class="section-anchor" id="research" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+<table class="section-anchor" id="research" style="width:100%;border-spacing:0px;margin:auto;">
 <tbody>
 <tr>
 <td style="padding:20px;width:100%;vertical-align:middle">
@@ -424,7 +270,7 @@ figcaption { color:#586675; font-size:12px; line-height:1.5; margin-top:10px; }
 <a class="btn" href="https://anonymous.4open.science/r/DLEE-DATA/README.md">Dataset</a></div><p class="paper-summary">DLEE provides a dataset for Chinese document-level legal event extraction, supporting the study of event structures and arguments distributed across legal documents.</p>
 </td></tr></tbody>
 </table>
-<table class="section-anchor" id="honors" style="width:100%;border:0px;border-spacing:0px;margin:auto;">
+<table class="section-anchor" id="honors" style="width:100%;border-spacing:0px;margin:auto;">
 <tbody>
 <tr>
 <td style="padding:20px;width:100%;vertical-align:middle">
@@ -516,3 +362,4 @@ figcaption { color:#586675; font-size:12px; line-height:1.5; margin-top:10px; }
   </script>
 </body>
 </html>
+

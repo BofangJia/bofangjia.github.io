@@ -41,14 +41,7 @@ h3 { margin:0 0 6px; font-size:17px; font-weight:600; line-height:1.45; color:#1
 .profile-links { display:flex; flex-wrap:wrap; gap:4px 20px; margin:16px 0 0; }
 
 /* Motto between the introduction and News. */
-.motto { text-align:center; padding:4px 20px 6px; }
-.motto figure { margin:0; }
-.motto blockquote { margin:0; font-family:'EB Garamond', Georgia, serif; font-style:italic; font-size:28px; line-height:1.3; color:#222; }
-.motto .nb { white-space:nowrap; }
-.motto .tell { display:block; margin-top:2px; font-size:21px; color:#8a939c; }
-.motto figcaption { margin-top:14px; font-size:12px; letter-spacing:.04em; }
-.motto figcaption, .motto figcaption a { color:#a0a8b0; text-decoration:none; }
-.motto figcaption a:hover { color:#202020; }
+.motto { margin:0; padding:4px 20px 6px; text-align:center; font-family:'EB Garamond', Georgia, serif; font-style:italic; font-size:28px; line-height:1.3; color:#222; text-wrap:balance; }
 
 /* Sections are separated by hairlines. */
 #research, #honors { border-top:1px solid #e3dfd6; }
@@ -90,8 +83,7 @@ figcaption { margin-top:8px; font-size:12.5px; line-height:1.5; color:#777; }
   #home > tbody > tr > td { display:block; width:100% !important; max-width:100% !important; padding:12px 20px !important; }
   .profile-photo { margin:0; max-width:200px; }
   .profile-links { gap:6px 18px; }
-  .motto blockquote { font-size:22px; }
-  .motto .tell { font-size:18px; }
+  .motto { font-size:21px; }
   #news .news-date { width:82px; padding-right:10px; }
   .publications, .publications > tbody { display:block; width:100%; }
   .paper-row { display:flex; flex-direction:column; padding:20px; border-top:1px solid #e3dfd6; }
@@ -144,10 +136,7 @@ figcaption { margin-top:8px; font-size:12.5px; line-height:1.5; color:#777; }
 </tr>
 </tbody>
 </table>
-<section aria-label="Motto" class="motto"><figure>
-<blockquote><span class="nb">Either we are out of ideas</span> <span class="nb">or we are cooking.</span><span class="tell">Time will tell.</span></blockquote>
-<figcaption>&mdash; <a href="https://x.com/thsottiaux" rel="noopener" target="_blank">Tibo</a></figcaption>
-</figure></section>
+<blockquote class="motto">Either we are out of ideas or we are cooking. Time will tell.</blockquote>
 <table class="section-anchor" id="news" style="width:100%;border-spacing:0px;margin:auto;">
 <tbody>
 <tr>
@@ -362,4 +351,5 @@ figcaption { margin-top:8px; font-size:12.5px; line-height:1.5; color:#777; }
   </script>
 </body>
 </html>
+
 
